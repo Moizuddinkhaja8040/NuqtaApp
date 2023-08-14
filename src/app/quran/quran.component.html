@@ -1,0 +1,33 @@
+<div *ngIf="quranData">
+
+  <!-- Display other properties as needed -->
+
+  <div class="h-screen bg-black-100 q-font">
+    <div class="sticky-div pr-80 ">{{ quranData.data.name }}</div>
+    <p>{{ quranData.data.revelationType }}</p>
+    <div *ngFor="let ayah of quranData.data.ayahs, let i= index ">
+    
+    
+      <div *ngIf="i==0; else elseBlock">
+        <p  [innerHTML]="ayah.text.substring(0,39) | highlight : option"></p>
+        <br>
+        <div [attr.data-content]="i+1">
+          <p  [innerHTML]="ayah.text.substr(39) | highlight : option"> </p>
+      </div>
+      </div>
+      
+      <ng-template #elseBlock>
+        <div [attr.data-content]="i+1">
+          <span [innerHTML]="ayah.text | highlight : option">
+           
+          </span>
+          
+        </div>
+       
+      </ng-template>
+    
+      <br>
+      
+    </div>
+      </div>
+</div>
