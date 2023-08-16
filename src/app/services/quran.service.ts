@@ -17,7 +17,7 @@ export class QuranService {
   }
 
   getAllSurahData(): Observable<SurahsDataApiResponse> {
-    const url = `http://api.alquran.cloud/v1/meta`;
+    const url = `https://api.alquran.cloud/v1/meta`;
     return this.http.get<SurahsDataApiResponse>(url);
   }
 }
